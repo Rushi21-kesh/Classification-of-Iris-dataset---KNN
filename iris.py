@@ -7,7 +7,7 @@ import streamlit as st
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import metrics
-
+import pickle
 
 #load dataset
 data = pd.read_csv("iris.csv")
@@ -35,6 +35,16 @@ x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=30,random_state=3)
 model=KNeighborsClassifier(n_neighbors=5)
 model.fit(x_train,y_train)
 y_prd=model.predict(x_test)
+
+#create pickle file
+pickle_out=open("predict.pkl",'wb')
+pickle.dump(model,pickle_out)
+pickle_out.close()
+
+pickle_in=open("predict.pkl",'rb')
+predicter = pickle.load(pickle_in)
+
+
 
 #set title and markdown
 st.title("Classification of IRIS Flower ")

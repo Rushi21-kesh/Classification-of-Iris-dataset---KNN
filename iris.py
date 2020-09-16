@@ -73,12 +73,10 @@ swmin = data['sepal_width'].min()
 
 #by using min and max values of the length and the width of the sepals and petals create slider for each feature
 
-pl = st.sidebar.slider("Value of Petal Length",plmin,plmax)
-pw = st.sidebar.slider("Value of Petal Length",pwmin,pwmax)
-sl = st.sidebar.slider("Value of Petal Length",slmin,slmax)
-sw = st.sidebar.slider("Value of Petal Length",swmin,swmax)
-
-#
+pl = st.sidebar.slider("Value of Petal Length",float(plmin),float(plmax))
+pw = st.sidebar.slider("Value of Petal Length",float(pwmin),float(pwmax))
+sl = st.sidebar.slider("Value of Petal Length",float(slmin),float(slmax))
+sw = st.sidebar.slider("Value of Petal Length",float(swmin),float(swmax))
 
 #print("According to data flower specie is :",x)
 
@@ -86,4 +84,3 @@ sw = st.sidebar.slider("Value of Petal Length",swmin,swmax)
 if st.sidebar.button(" Classify "):
     x=model.predict([[sl,sw,pl,pw]])
     st.sidebar.success("IRIS Flower Specie is : {} ".format(x))
-

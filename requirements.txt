@@ -4,4 +4,3 @@ matplotlib>=1.4.3
 seaborn
 pandas>=0.19
 streamlit
-pickle
